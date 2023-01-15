@@ -47,16 +47,52 @@ Route::get('new', function(){
     return redirect()->route('noticias');//Fazer um redirect pelo nome da rota
 });
 
-Route::prefix('admin')->group(function(){//Agrupamento de rotas
+Route::get('/redirect', function(){
+    return redirect()->route('admin.client');
+});
+
+//Route::name('admin.')->group(function(){//Agrupamento de rotas por nome
+//    Route::get('admin/dashboard', function (){
+//        return 'dasshboard';
+//    })->name('dashboard');
+//
+//    Route::get('admin/client', function (){
+//        return 'client';
+//    })->name('client');
+//
+//    Route::get('admin/users', function (){
+//        return 'users';
+//    })->name('users');
+//});
+
+
+//Route::prefix('admin')->group(function(){//Agrupamento de rotas por prefixo
+//    Route::get('dashboard', function (){
+//        return 'dasshboard';
+//    })->name('dashboard');
+//
+//    Route::get('client', function (){
+//        return 'client';
+//    })->name('client');
+//
+//    Route::get('users', function (){
+//        return 'users';
+//    })->name('users');
+//});
+
+Route::group([
+        'prefix'=> 'admin',
+        'as' => 'admin.'//group
+    ], function (){//Agrupamento de rotas por nome e prefixo
     Route::get('dashboard', function (){
         return 'dasshboard';
-    });
+    })->name('dashboard');
 
     Route::get('client', function (){
         return 'client';
-    });
+    })->name('client');
 
     Route::get('users', function (){
         return 'users';
-    });
+    })->name('users');
 });
