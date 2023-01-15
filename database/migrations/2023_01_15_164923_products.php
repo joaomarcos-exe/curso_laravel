@@ -15,8 +15,16 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('namee');
-            $table->string('full_name');
+            $table->string('name');
+            $table->text('description');
+            $table->double('preco',10,2);
+            $table->string('slug');
+            $table->string('image')->nullable();
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            
+            $table->unsignedBigInteger('id_category');
+            $table->foreign('id_category')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -17,8 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
+    protected $fillable = [//Campos que podem ter inserção em maca
+        'firstname',
+        'lastname',
         'email',
         'password',
     ];
