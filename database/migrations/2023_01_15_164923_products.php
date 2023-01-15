@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
-            $table->double('preco',10,2);
+            $table->double('price',10,2);
             $table->string('slug');
             $table->string('image')->nullable();
             $table->unsignedBigInteger('id_user');
