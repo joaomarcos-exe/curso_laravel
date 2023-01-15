@@ -15,8 +15,20 @@ class ProductController extends Controller
     public function index()
     {
         //return 'index';
-        $products = Product::all();//Busca todos os registros
-        dd($products);//DD serve para debugar o objeto
+//        $products = Product::all();//Busca todos os registros
+//        dd($products);//DD serve para debugar o objeto
+//        return view('site.news');
+        
+        $name = "Joao Marcos";
+        $years_old = 20;
+        $html = "<h1> Olá eu sou H1 </h1>";
+//        return view('site/news', [
+//            'name' => $name,
+//            'years_old' => $years_old,
+//            'html'=> $html,
+//        ]);
+        return view('site/home', compact('name', 'years_old', 'html'));
+
     }
 
     /**
